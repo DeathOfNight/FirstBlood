@@ -1,0 +1,26 @@
+server:
+  port: 9009
+spring:
+  application:
+      name: pgw-demo-server-jun-1.0
+  datasource:
+    url: jdbc:oracle:thin:@127.0.0.1:1521/ORCL
+  # testWhileIdle: true
+    validationQuery: SELECT 1 from dual
+    username: hello
+    password: world
+    driverClassName: oracle.jdbc.OracleDriver
+
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
+  http.converters.preferred-json-mapper: fastjson
+#  com.example.demo.data:
+#    rest.base-path: /api/pgw/router
+mybatis:
+  dialect: org.apache.ibatis.dialect.OracleDialect
+  #mapper-locations:
+    #classpath*: com/example/demo/mapping/*.xml
+  #dialect: org.apache.ibatis.dialect.OracleDialect
+  #bbase-package: com.example.demo.dao
+  #aliases-package: com.example.demo.data
+  #underscore-to-camel-case: true
