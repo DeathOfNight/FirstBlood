@@ -42,9 +42,8 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
 	compile("org.springframework.boot:spring-boot-starter-jdbc")
 	compile('org.springframework.boot:spring-boot-starter-aop')
-
-
 	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.0.0')
+
 	compile("org.apache.commons:commons-lang3:3.4")
 	compile("commons-io:commons-io:2.4")
 	compile("org.json:json:20160212")
@@ -61,6 +60,9 @@ dependencies {
 	compile("org.springframework:spring-web")
 	compile("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
 	compile("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final")
+
+	compile("org.springframework.boot:spring-boot-starter-security")
+
 
 
 	testCompile("org.springframework.boot:spring-boot-starter-test")
