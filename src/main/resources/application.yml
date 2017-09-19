@@ -12,6 +12,7 @@ spring:
     driverClassName: oracle.jdbc.OracleDriver
 
 #  jackson:
+#1
 #    date-format: yyyy-MM-dd HH:mm:ss
   http.converters.preferred-json-mapper: fastjson
 #  com.example.demo.data:
