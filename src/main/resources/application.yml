@@ -26,3 +26,9 @@ mybatis:
   #bbase-package: com.example.demo.dao
   #aliases-package: com.example.demo.data
   #underscore-to-camel-case: true
+
+logging:
+   level:
+     root: INFO
+     org.springframework.security: INFOn
+     com.example.demo: DEBUG
