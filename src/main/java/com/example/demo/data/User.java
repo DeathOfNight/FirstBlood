@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(
@@ -22,7 +23,7 @@ public class User implements UserDetails {
     String password;
 
     // UserDetails的角色资源属性集合
-    private Collection<GrantedAuthority> authorities;
+    private List<GrantedAuthority> authorities;
 
     @Override
     public String getUsername() {
@@ -55,27 +56,27 @@ public class User implements UserDetails {
         return authorities;
     }
 
-    public void setAuthorities(Collection<GrantedAuthority> authorities) {
+    public void setAuthorities(List<GrantedAuthority> authorities) {
         this.authorities = authorities;
     }
 
     @Transient
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     @Transient
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Transient
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Transient
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 }

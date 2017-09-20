@@ -3,8 +3,8 @@
 <mapper namespace="com.example.demo.dao.UserRoleDao">
 
     <select id="selectUser" resultType="com.example.demo.data.User">
-        SELECT * FROM DEPARTMENT
-        where userName= #{userName}
+        SELECT * FROM TESTUSER
+        where USERNAME= #{userName}
     </select>
 
 
