@@ -4,12 +4,14 @@ spring:
   application:
       name: pgw-demo-server-jun-1.0
   datasource:
-    url: jdbc:oracle:thin:@127.0.0.1:1521/ORCL
-  # testWhileIdle: true
-    validationQuery: SELECT 1 from dual
-    username: hello
-    password: world
-    driverClassName: oracle.jdbc.OracleDriver
+      url: jdbc:mysql://192.168.165.222:3306/demo?useUnicode=true&characterEncoding=UTF-8
+      testWhileIdle: true
+      validationQuery: SELECT 1
+      username: root
+      password: zhangjun666
+      driverClassName: com.mysql.jdbc.Driver
+      dialect: com.example.demo.config.MySQLDialect
+
 
 #  jackson:
 #1
@@ -26,9 +28,3 @@ mybatis:
   #bbase-package: com.example.demo.dao
   #aliases-package: com.example.demo.data
   #underscore-to-camel-case: true
-
-logging:
-   level:
-     root: INFO
-     org.springframework.security: INFOn
-     com.example.demo: DEBUG

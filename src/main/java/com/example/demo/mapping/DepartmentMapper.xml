@@ -12,12 +12,17 @@
 
         <!--]]>-->
     <!--</select>-->
-    <select id="selectDepartmentBypage" resultType="com.example.demo.data.Department">
-        SELECT * FROM DEPARTMENT
+    <select id="selectDepartmentBypage" resultType="com.example.demo.data.UserInfo" parameterType="Map" >
+        SELECT *
+        FROM USER_INFO
+        <if test="a!=null">
+            <where>
+                <if test="name!=null and name!=''"> name=#{name}</if>
+                <if test="age!=null and age!=''">AND  age=#{age}</if>
+            </where>
+            LIMIT #{a},#{b}
+        </if>
     </select>
-
-
-
 
 
 </mapper>

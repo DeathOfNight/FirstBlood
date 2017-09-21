@@ -71,4 +71,6 @@ dependencies {
 	compile group: 'ognl', name: 'ognl', version:'3.1.4'
 	compile("com.alibaba:druid:1.0.26")
 	compile("com.oracle:ojdbc6:11g")
+	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.39'
+	compile("com.haiercash:mybatis:3.4.0.14")
 }

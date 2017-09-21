@@ -28,8 +28,16 @@ public class DepartmentController {
 
     @RequestMapping(value = "Home/GetDepartment",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getDepartmet(@RequestBody QueryParam param){
-        return departmentService.selectByPage(param.getLimit(),param.getOffset());
+    public Map<String, Object> getDepartmet(int pageSize,int pageNumber,String name,Integer age){
+            /*所需参数*/
+        Map<String, Object> param=new HashMap<String, Object>();
+        int a=(pageNumber-1)*pageSize;
+        int b=pageSize;
+        param.put("a", a);
+        param.put("b", b);
+        param.put("name", name);
+        param.put("age", age);
+        return departmentService.selectByPage(param);
     }
 
 //    @RequestMapping(value = "Home/GetDepartment",method = RequestMethod.POST)
