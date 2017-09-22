@@ -1804,6 +1804,19 @@
 	</script>
 	<script type="text/javascript">
 
+
+		$(function () {
+
+			//1.初始化Table
+			var bstpTable=new BstpTable($("table"));
+			bstpTable.inint({})
+
+			//2.初始化Button的点击事件
+			var oButtonInit = new ButtonInit(bstpTable);
+			oButtonInit.Init(bstpTable);
+		});
+
+
 		class BstpTable{
 			constructor(obj) {
 				this.obj=obj;
@@ -1862,16 +1875,24 @@
 			}
 		}
 
-		var bstpTable=new BstpTable($("table"));
-		bstpTable.inint({})
 
-		$(".search").click(function(){
-			var searchArgs={
-				name:$("input[name='name']").val(),
-				age:$("input[name='age']").val()
-			}
-			bstpTable.inint(searchArgs)
-		})
+
+		var ButtonInit = function (bstpTable) {
+			var oInit = new Object();
+			var postdata = {};
+			oInit.Init = function (bstpTable) {
+				$(".search").click(function(){
+					var searchArgs={
+						name:$("input[name='name']").val(),
+						age:$("input[name='age']").val()
+					}
+					bstpTable.inint(searchArgs)
+				})
+			};
+			return oInit;
+		};
+
+
 
 
 	</script>
