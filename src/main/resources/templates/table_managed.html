@@ -1842,7 +1842,7 @@
 					pageList: [2,3,4],//可供选择的每页的行数（*）
 					sidePagination: "server", //分页方式：client客户端分页，server服务端分页（*）
 					showRefresh:true,//刷新按钮
-
+					clickToSelect: true,                //是否启用点击选中行
 
 					//【样式设置】
 					height: 300,//table的高度
@@ -1851,18 +1851,12 @@
 
 					//【设置列】
 					columns: [
+						{  checkbox: true},
 						{field: 'id',title: 'id'},
 						{field: 'name',title: '姓名'},
 						{field: 'age',title: '年龄'},
 						{field: 'phone',title: '手机'},
-						/*{field: 'tool',title: '操作', align: 'center',
-							formatter:function(value,row,index){
-								var element =
-										"<a class='edit' data-id='"+row.id +"'>编辑</a> "+
-										"<a class='delet' data-id='"+row.id +"'>删除</a> ";
-								return element;
-							}
-						}*/
+
 					]
 				})
 			}
