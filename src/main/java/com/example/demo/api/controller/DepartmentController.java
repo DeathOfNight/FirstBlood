@@ -40,27 +40,23 @@ public class DepartmentController {
         return departmentService.selectByPage(param);
     }
 
-//    @RequestMapping(value = "Home/GetDepartment",method = RequestMethod.POST)
-//    @ResponseBody
-//    public Object GetDepartment(@RequestBody QueryParam param)
-//    {
-//        List list = new ArrayList<Department>();
-////        for (int i = 0; i < 50; i++)
-////        {
-////            Department oModel = new Department();
-////            oModel.setName("销售部");
-////            list.add(oModel);
-////        }
-//
-//        Integer total = list.size();
-//        Integer rows = 2;
-//        JSONObject jsonObject=new JSONObject();
-//        jsonObject.put("rows", rows);//JSONArray
-//        jsonObject.put("total",total);//总记录数
-//        jsonObject.put("list",list);
-//        jsonObject.put("header","Access-Control-Allow-Origin");
-//        System.out.println(jsonObject);
-//        System.out.println(jsonObject.toString());
-//        return jsonObject;
-//    }
+
+    @RequestMapping(value = "Home/Delete",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> Delete(){
+            /*所需参数*/
+        Map<String, Object> param=new HashMap<String, Object>();
+        int a=(pageNumber-1)*pageSize;
+        int b=pageSize;
+        param.put("a", a);
+        param.put("b", b);
+        param.put("name", name);
+        param.put("age", age);
+        return departmentService.selectByPage(param);
+    }
+
+
+
+
+
 }
