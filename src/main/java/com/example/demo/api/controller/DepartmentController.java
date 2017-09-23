@@ -3,8 +3,11 @@ package com.example.demo.api.controller;
 import com.example.demo.dao.DepartmentDao;
 import com.example.demo.data.Department;
 import com.example.demo.data.QueryParam;
+import com.example.demo.data.UserInfo;
 import com.example.demo.service.DepartmentService;
 import jdk.nashorn.internal.parser.JSONParser;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONString;
@@ -26,6 +29,8 @@ public class DepartmentController {
     @Autowired
     DepartmentService departmentService;
 
+    private Log logger = LogFactory.getLog(this.getClass());
+
     @RequestMapping(value = "Home/GetDepartment",method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> getDepartmet(int pageSize,int pageNumber,String name,Integer age){
@@ -41,18 +46,13 @@ public class DepartmentController {
     }
 
 
-    @RequestMapping(value = "Home/Delete",method = RequestMethod.POST)
+    @RequestMapping(value = "/Home/Delete",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> Delete(){
+    public Boolean Delete(@RequestBody Object  userInfoList){
             /*所需参数*/
-        Map<String, Object> param=new HashMap<String, Object>();
-        int a=(pageNumber-1)*pageSize;
-        int b=pageSize;
-        param.put("a", a);
-        param.put("b", b);
-        param.put("name", name);
-        param.put("age", age);
-        return departmentService.selectByPage(param);
+        logger.info("============"+userInfoList);
+
+        return true;
     }
 
 
