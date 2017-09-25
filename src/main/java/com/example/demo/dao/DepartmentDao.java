@@ -11,5 +11,19 @@ import java.util.Map;
  * Created by Administrator on 2017/9/16 0016.
  */
 public interface DepartmentDao {
+    /**
+     * 查询
+     * @param map
+     * @return
+     */
     List<UserInfo> selectDepartmentBypage(Map<String,Object> map);
+
+
+    /**
+     * 删除通过Id
+     * @param id
+     * @return
+     */
+    void delectById(@Param("id") String id);
+
 }

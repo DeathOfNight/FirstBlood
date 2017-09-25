@@ -18,7 +18,7 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	@Bean
+	/*@Bean
 	public HttpMessageConverters fastJsonConverters(){
 		FastJsonHttpMessageConverter fastJsonConverter = new FastJsonHttpMessageConverter();
 		FastJsonConfig fastConf = new FastJsonConfig();
@@ -28,5 +28,5 @@ public class DemoApplication {
 
 		HttpMessageConverter<?> converter = fastJsonConverter;
 		return new HttpMessageConverters(converter);
-	}
+	}*/
 }

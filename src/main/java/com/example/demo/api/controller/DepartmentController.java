@@ -48,10 +48,15 @@ public class DepartmentController {
 
     @RequestMapping(value = "/Home/Delete",method = RequestMethod.POST)
     @ResponseBody
-    public Boolean Delete(@RequestBody Object  userInfoList){
+    public Boolean Delete(@RequestBody String   userInfoId){
             /*所需参数*/
-        logger.info("============"+userInfoList);
+        logger.info("删除的数据ID："+userInfoId);
 
+        try {
+            departmentService.delectById(userInfoId);
+        } catch (Exception e) {
+            return false;
+        }
         return true;
     }
 
