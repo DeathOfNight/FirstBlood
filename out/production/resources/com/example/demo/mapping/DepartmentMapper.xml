@@ -24,5 +24,11 @@
         </if>
     </select>
 
-
+    <select id="delectById" parameterType="java.lang.String" >
+        DELETE
+        FROM USER_INFO
+            <where>
+                id = #{id}
+            </where>
+    </select>
 </mapper>

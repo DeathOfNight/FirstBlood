@@ -25,8 +25,8 @@ public class DemoApplicationTests {
 
 	@Test
 	public void testDepartment() {
-		List<Department> list = departmentDao.selectDepartmentBypage(1,0);
-		System.out.println(list.size());
+//		List<Department> list = departmentDao.selectDepartmentBypage(1,0);
+//		System.out.println(list.size());
 	}
 
 

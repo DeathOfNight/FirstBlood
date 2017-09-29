@@ -25,7 +25,7 @@ public class CustomMVCConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry resourceHandlerRegistry){
-        resourceHandlerRegistry.addResourceHandler("/**").addResourceLocations("/");
+        resourceHandlerRegistry.addResourceHandler("/**").addResourceLocations("classpath:/statics/");
     }
 
 
