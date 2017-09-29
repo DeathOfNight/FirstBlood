@@ -11,7 +11,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.example.demo.service.PayService;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -21,12 +20,12 @@ public class DemoApplicationTests {
 	PayService testService;
 
 	@Autowired
-	DepartmentDao departmentDao;
+	UserInfoDao departmentDao;
 
 	@Test
 	public void testDepartment() {
-//		List<Department> list = departmentDao.selectDepartmentBypage(1,0);
-//		System.out.println(list.size());
+		//List<Department> list = departmentDao.selectDepartmentBypage(1,0);
+		//System.out.println(list.size());
 	}
 
 

@@ -10,15 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class BaseController {
 
-   /* @RequestMapping(value = "/index" ,method = RequestMethod.GET)
-    public ModelAndView getIndex() {
-        return new ModelAndView("index");
-    }*/
 
-   /* @RequestMapping(value = "/form_layout" ,method = RequestMethod.GET)
-    public ModelAndView getForm_layout() {
-        return new ModelAndView("form_layout");
-    }*/
 
     @RequestMapping(value = "/{viewName}" ,method = RequestMethod.GET)
     public ModelAndView getUrl(@PathVariable String viewName ) {

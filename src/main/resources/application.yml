@@ -11,6 +11,9 @@ spring:
       password: zhangjun666
       driverClassName: com.mysql.jdbc.Driver
       dialect: com.example.demo.config.MySQLDialect
+  #devtools:
+      #restart: enabled
+
 
 
 #  jackson:
@@ -28,3 +31,5 @@ mybatis:
   #bbase-package: com.example.demo.dao
   #aliases-package: com.example.demo.data
   #underscore-to-camel-case: true
+
+

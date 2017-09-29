@@ -1672,7 +1672,7 @@
                                 </div>
 
                                 <!-- 表格 -->
-                                <div class="col-xs-12">
+                                <div class="col-xs-12 container-fluid">
                                     <table id="table_user" class="table table-striped table-bordered table-hover"
 
                                            data-show-refresh="true"
@@ -1694,13 +1694,13 @@
                                             </div>
                                             <div class="modal-body">
                                                 <input name="id" id="id" type="hidden" value=""/>
-                                                <div class="form-group"><label>姓名</label> <input name="name" id="name" type="text" class="form-control" /></div>
-                                                <div class="form-group"><label>年龄</label> <input name="age" id="age" type="text" class="form-control"/></div>
-                                                <div class="form-group"><label>手机</label> <input name="phone" id="phone" type="text" class="form-control"/></div>
+                                                <div class="form-group"><label>姓名</label> <input name="name" id="save_name" type="text" class="form-control" /></div>
+                                                <div class="form-group"><label>年龄</label> <input name="age" id="save_age" type="text" class="form-control"/></div>
+                                                <div class="form-group"><label>手机</label> <input name="phone" id="save_phone" type="text" class="form-control"/></div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-                                                <button type="button" class="btn btn-primary baocun">保存</button>
+                                                <button type="button" id="save" class="btn btn-primary ">保存</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1924,7 +1924,6 @@
                     layer.alert("选择0条数据");
                     return;
                 }
-                alert("arrselections:"+arrselections[0].id+"长度"+arrselections.length);
                 $.ajax({
                     type: "post",
                     dataType: 'json',
@@ -1934,7 +1933,7 @@
                    data: arrselections[0].id,
                     success: function (data, status) {
                         if (status == "success") {
-                            layer.alert('提交数据成功'+data);
+                            layer.alert('删除数据成功');
                             $("#table_user").bootstrapTable('refresh');
                         }
                     },
@@ -1953,29 +1952,56 @@
             $("#btn_edit2").click(function() {
                 var arrselections = $("#table_user").bootstrapTable('getSelections');
                 userdata = arrselections[0];
-                //layer.alert('编辑的数据为'+ userdata.id+"==="+userdata.name+"==="+userdata.age+"==="+userdata.phone);
                 $("#id").val(userdata.id);
-                $("#name").val(userdata.name);
-                $("#age").val(userdata.age);
-                $("#phone").val(userdata.phone);
+                $("#save_name").val(userdata.name);
+                $("#save_age").val(userdata.age);
+                $("#save_phone").val(userdata.phone);
 
             });
 
-            //改密
-           /* $(".baocun").click(function() {
-                var cid = $("#cid").val();
-                var pass = $("#pass").val();
-                var repass = $("#repass").val();
-                if (cid=="") {parent.layer.msg('未选择用户！');return false;}
-                if (pass=="" || repass=="") {parent.layer.msg('密码不能留空！');return false;}
-                if (pass!=repass) {parent.layer.msg('两次输入的密码不相同！');return false;}
-
-                $.get('{:url("Hplus/index/editpass")}','cid='+cid+'&amp;pass='+pass+'&amp;repass='+repass,function (msg) {
+            //保存
+            $("#save").click(function() {
+                var id = $("#id").val();
+                var save_name = $("#save_name").val();
+                var save_age = $("#save_age").val();
+                var save_phone = $("#save_phone").val();
+                if (id=="") {parent.layer.msg('未选择用户！');return false;}
+                if (save_name =="" || save_age=="") {parent.layer.msg('姓名年龄不能留空！');return false;}
+               /* $.get('{:url("Hplus/index/editpass")}','cid='+cid+'&amp;pass='+pass+'&amp;repass='+repass,function (msg) {
                     parent.layer.msg(msg);
                     $("#myModal").modal('hide');
+                });*/
+                $.ajax({
+                    type: "post",
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    url: "/Home/save",
+                    data: JSON.stringify(jsonSaveData()),
+                    success: function (data, status) {
+                        if (status == "success") {
+                            layer.alert('更新数据成功');
+                            $("#myModal").modal('hide');
+                            $("#table_user").bootstrapTable('refresh');
+                        }
+                    },
+                    error: function () {
+                        alert('Error');
+                    },
+                    complete: function () {
+                    }
                 });
 
-            });*/
+            });
+
+            function jsonSaveData() {
+                var json = {
+                    "id": $("#id").val(),
+                    "name": $("#save_name").val(),
+                    "age": $("#save_age").val(),
+                    "phone": $("#save_phone").val()
+                };
+                return json;
+            }
 
 
 

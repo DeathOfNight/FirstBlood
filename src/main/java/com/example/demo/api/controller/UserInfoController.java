@@ -1,33 +1,22 @@
 package com.example.demo.api.controller;
 
-import com.example.demo.dao.DepartmentDao;
-import com.example.demo.data.Department;
-import com.example.demo.data.QueryParam;
 import com.example.demo.data.UserInfo;
-import com.example.demo.service.DepartmentService;
-import jdk.nashorn.internal.parser.JSONParser;
+import com.example.demo.service.UserInfoService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
  * Created by Administrator on 2017/9/16 0016.
  */
 @RestController
-public class DepartmentController {
+public class UserInfoController {
     @Autowired
-    DepartmentService departmentService;
+    UserInfoService departmentService;
 
     private Log logger = LogFactory.getLog(this.getClass());
 
@@ -51,7 +40,6 @@ public class DepartmentController {
     public Boolean Delete(@RequestBody String   userInfoId){
             /*所需参数*/
         logger.info("删除的数据ID："+userInfoId);
-
         try {
             departmentService.delectById(userInfoId);
         } catch (Exception e) {
@@ -61,7 +49,19 @@ public class DepartmentController {
     }
 
 
-
+    @RequestMapping(value = "/Home/save",method = RequestMethod.POST)
+    @ResponseBody
+    public Boolean Delete(@RequestBody UserInfo   userInfo){
+            /*所需参数*/
+        logger.info("保存的数据：" + userInfo.getId() + "===" + userInfo.getName()
+                + "===" + userInfo.getAge() + "==" + userInfo.getPhone());
+        try {
+            departmentService.updateUserInfo(userInfo);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
 
 
 }

@@ -73,4 +73,7 @@ dependencies {
 	compile("com.oracle:ojdbc6:11g")
 	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.39'
 	compile("com.haiercash:mybatis:3.4.0.14")
+/*
+	//代码热更替-
+	compile("org.springframework.boot:spring-boot-devtools")*/
 }
