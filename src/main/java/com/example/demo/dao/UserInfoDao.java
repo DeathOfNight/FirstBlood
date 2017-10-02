@@ -1,6 +1,5 @@
 package com.example.demo.dao;
 
-import com.example.demo.data.Department;
 import com.example.demo.data.UserInfo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -18,7 +17,7 @@ public interface UserInfoDao {
      * @param map
      * @return
      */
-    List<UserInfo> selectDepartmentBypage(Map<String,Object> map);
+    List<UserInfo> selectUserInfoBypage(Map<String,Object> map);
 
 
     /**
@@ -29,7 +28,19 @@ public interface UserInfoDao {
     int delectById(@Param("id") String id);
 
 
+    /**
+     * 更新客户信息
+     * @param userInfo
+     * @return
+     */
     int updateUserInfo(UserInfo userInfo);
+
+    /**
+     * 注册新用户
+     * @param userInfo
+     * @return
+     */
+    int addUserInfo(UserInfo userInfo);
 
 
 

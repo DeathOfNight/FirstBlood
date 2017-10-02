@@ -2788,6 +2788,37 @@
 
 		});
 
+
+		var data=$('FormID').serialize();
+		//序列化获得表单数据，结果为：user_id=12&user_name=John&user_age=20
+
+		var submitData=decodeURIComponent(data,true);
+		//submitData是解码后的表单数据，结果同上
+
+		$.ajax({
+			url:'',
+			data:submitData,
+			cache:false,//false是不缓存，true为缓存
+			async:true,//true为异步，false为同步
+			beforeSend:function(){
+				//请求前
+			},
+			success:function(result){
+				//请求成功时
+			},
+			complete:function(){
+				//请求结束时
+			},
+			error:function(){
+				//请求失败时
+			}
+		})
+
+
+
+
+
+
 	</script>
 
 	<!-- END JAVASCRIPTS -->   

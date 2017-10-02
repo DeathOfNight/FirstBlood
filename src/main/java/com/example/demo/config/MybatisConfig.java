@@ -1,7 +1,6 @@
 package com.example.demo.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.mybatis.mapper.MapperScannerConfigurer;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,14 +31,14 @@ public class MybatisConfig implements TransactionManagementConfigurer {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setTypeAliasesPackage("com.example.demo.data.**");
-        sqlSessionFactoryBean.setDialect(dialect);
+       // sqlSessionFactoryBean.setDialect(dialect);
 
         //添加XML目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {
             sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:com/example/demo/**/mapping/*.xml"));
             sqlSessionFactoryBean.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
-            sqlSessionFactoryBean.getObject().getConfiguration().setMapUnderscoreToCamelCaseForMap(true);
+           // sqlSessionFactoryBean.getObject().getConfiguration().setMapUnderscoreToCamelCaseForMap(true);
 //            sqlSessionFactoryBean.setConfigLocation(resolver.getResource("classpath:mybatis-config.xml"));
             return sqlSessionFactoryBean.getObject();
         } catch (Exception e) {
@@ -58,7 +57,7 @@ public class MybatisConfig implements TransactionManagementConfigurer {
         return new DataSourceTransactionManager(dataSource);
     }
     
-    @Configuration
+    /*@Configuration
     @AutoConfigureAfter(MybatisConfig.class)
     public static class MyBatisMapperScannerConfig {
         @Bean
@@ -69,5 +68,5 @@ public class MybatisConfig implements TransactionManagementConfigurer {
             mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
             return mapperScannerConfigurer;
         }
-    }
+    }*/
 }

@@ -12,13 +12,13 @@
 
         <!--]]>-->
     <!--</select>-->
-    <select id="selectDepartmentBypage" resultType="com.example.demo.data.UserInfo"  >
+    <select id="selectUserInfoBypage" resultType="com.example.demo.data.UserInfo"  >
         SELECT *
         FROM USER_INFO
         <if test="a!=null">
             <where>
-                <if test="name!=null and name!=''"> name=#{name}</if>
-                <if test="age!=null and age!=''">AND  age=#{age}</if>
+                <if test="name!=null and name!=''"> name = #{name}</if>
+                <if test="phone!=null and phone!=''">AND  phone = #{phone}</if>
             </where>
             LIMIT #{a},#{b}
         </if>
@@ -39,7 +39,19 @@
         update USER_INFO
         set age = #{age},
          name = #{name},
-         phone = #{phone}
+         phone = #{phone},
+         sex = #{sex}
         where id = #{id}
     </update>
+
+
+    <!--会员注册-->
+    <insert id="addUserInfo"  parameterType="com.example.demo.data.UserInfo">
+        INSERT INTO USER_INFO (id,name,phone,age,sex,create_time,remark)
+        VALUES (#{id},#{name},#{phone},#{age},#{sex},#{createTime},#{remark})
+
+
+    </insert>
+
+
 </mapper>

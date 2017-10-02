@@ -7,7 +7,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,14 +28,16 @@ public class UserInfoService {
     public Map selectByPage(Map<String, Object> param) {
         //bootstrap-table要求服务器返回的json须包含：totlal，rows
         Map<String, Object> result = new HashMap<String, Object>();
-        int total = userInfoDao.selectDepartmentBypage(null).size();
-        List<UserInfo> rows = userInfoDao.selectDepartmentBypage(param);
+        int total = userInfoDao.selectUserInfoBypage(null).size();
+        List<UserInfo> rows = userInfoDao.selectUserInfoBypage(param);
         result.put("total", total);
         result.put("rows", rows);
         return result;
     }
 
 
+    //删除会员信息
+    @Transactional(propagation= Propagation.REQUIRED)
     public void delectById(String id) throws Exception {
         int i = 0;
         try {
@@ -48,7 +54,20 @@ public class UserInfoService {
     }
 
 
+    /**
+     * 更新会员信息
+     * @param userInfo
+     * @throws Exception
+     */
+    @Transactional(propagation=Propagation.REQUIRED)
     public void updateUserInfo(UserInfo userInfo)throws Exception {
+        logger.info("修改用户的数据："
+                + "姓名:" +userInfo.getName()
+                + "|年龄:" + userInfo.getAge()
+                + "|手机号:" + userInfo.getPhone()
+                + "|性别:" + userInfo.getSex()
+                + "备注:" + userInfo.getRemark() );
+
         try {
             int i = userInfoDao.updateUserInfo(userInfo);
         } catch (Exception e) {
@@ -57,7 +76,31 @@ public class UserInfoService {
         }
 
         return;
+    }
+
+    @Transactional(propagation=Propagation.REQUIRED)
+    public  void addUserInfo(UserInfo userInfo) throws Exception{
+
+        logger.info("注册用户信息："
+                + "姓名:" +userInfo.getName()
+                + "|年龄:" + userInfo.getAge()
+                + "|手机号:" + userInfo.getPhone()
+                + "|性别:" + userInfo.getSex()
+                + "备注:" + userInfo.getRemark()
+        );
+        try {
+            userInfo.setId(java.util.UUID.randomUUID().toString());
+            userInfo.setCreateTime(new Date());
+            int i = userInfoDao.addUserInfo(userInfo);
+        } catch (Exception e) {
+            logger.error("新增客户信息表失败",e);
+            throw new Exception("新增客户信息表失败");
+        }
+
+        return;
 
 
     }
+
+
 }

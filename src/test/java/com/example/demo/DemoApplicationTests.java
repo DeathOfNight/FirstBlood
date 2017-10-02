@@ -1,7 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.dao.DepartmentDao;
-import com.example.demo.data.Department;
+import com.example.demo.dao.UserInfoDao;
 import com.example.demo.data.Pay;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +19,7 @@ public class DemoApplicationTests {
 	PayService testService;
 
 	@Autowired
-	UserInfoDao departmentDao;
+	UserInfoDao userInfoDao;
 
 	@Test
 	public void testDepartment() {

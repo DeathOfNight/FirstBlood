@@ -1,10 +1,13 @@
+/*
 package com.example.demo.config;
 
 import org.apache.ibatis.dialect.Dialect;
 
+*/
 /**
  * Created by Administrator on 2017/2/27.
- */
+ *//*
+
 public class MySQLDialect extends Dialect {
     public MySQLDialect() {
 
@@ -26,3 +29,4 @@ public class MySQLDialect extends Dialect {
         return sql + (offset > 0 ? " limit " + limitPlaceholder + " offset " + offsetPlaceholder : " limit " + limitPlaceholder);
     }
 }
+*/

@@ -16,13 +16,13 @@ import java.util.Map;
 @RestController
 public class UserInfoController {
     @Autowired
-    UserInfoService departmentService;
+    UserInfoService userInfoService;
 
     private Log logger = LogFactory.getLog(this.getClass());
 
-    @RequestMapping(value = "Home/GetDepartment",method = RequestMethod.POST)
+    @RequestMapping(value = "Home/getUserInfo",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getDepartmet(int pageSize,int pageNumber,String name,Integer age){
+    public Map<String, Object> getUserInfo(int pageSize,int pageNumber,String name,String phone){
             /*所需参数*/
         Map<String, Object> param=new HashMap<String, Object>();
         int a=(pageNumber-1)*pageSize;
@@ -30,8 +30,8 @@ public class UserInfoController {
         param.put("a", a);
         param.put("b", b);
         param.put("name", name);
-        param.put("age", age);
-        return departmentService.selectByPage(param);
+        param.put("phone", phone);
+        return userInfoService.selectByPage(param);
     }
 
 
@@ -41,7 +41,7 @@ public class UserInfoController {
             /*所需参数*/
         logger.info("删除的数据ID："+userInfoId);
         try {
-            departmentService.delectById(userInfoId);
+            userInfoService.delectById(userInfoId);
         } catch (Exception e) {
             return false;
         }
@@ -51,12 +51,25 @@ public class UserInfoController {
 
     @RequestMapping(value = "/Home/save",method = RequestMethod.POST)
     @ResponseBody
-    public Boolean Delete(@RequestBody UserInfo   userInfo){
+    public Boolean save(@RequestBody UserInfo   userInfo){
             /*所需参数*/
         logger.info("保存的数据：" + userInfo.getId() + "===" + userInfo.getName()
-                + "===" + userInfo.getAge() + "==" + userInfo.getPhone());
+                + "===" + userInfo.getAge() + "==" + userInfo.getPhone()+"=====sex:"+userInfo.getSex());
         try {
-            departmentService.updateUserInfo(userInfo);
+            userInfoService.updateUserInfo(userInfo);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+
+    @RequestMapping(value = "/Home/add",method = RequestMethod.POST)
+    @ResponseBody
+    public Boolean add(@RequestBody UserInfo   userInfo){
+            /*所需参数*/
+        try {
+            userInfoService.addUserInfo(userInfo);
         } catch (Exception e) {
             return false;
         }

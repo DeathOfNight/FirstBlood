@@ -1151,7 +1151,7 @@
                                 <!-- 搜索框 -->
                                 <div class="col-xs-6 pull-left">
                                     <div class="input-group">
-                                        <input type="text" class=" form-control" name="age" placeholder="请输入年龄"/>
+                                        <input type="text" class=" form-control" name="phone" placeholder="请输入手机号"/>
                                         <input type="text" class=" form-control" name="name" placeholder="请输入姓名"/>
 
                                                  <button class="btn blue btn btn-default search"
@@ -1183,6 +1183,7 @@
                                             <div class="modal-body">
                                                 <input name="id" id="id" type="hidden" value=""/>
                                                 <div class="form-group"><label>姓名</label> <input name="name" id="save_name" type="text" class="form-control" /></div>
+                                                <div class="form-group"><label>性别</label> <input name="sex" id="save_sex" type="text" class="form-control"/></div>
                                                 <div class="form-group"><label>年龄</label> <input name="age" id="save_age" type="text" class="form-control"/></div>
                                                 <div class="form-group"><label>手机</label> <input name="phone" id="save_phone" type="text" class="form-control"/></div>
                                             </div>
@@ -1281,7 +1282,8 @@
 
 <script type="text/javascript" src="media/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="bootstrapTable/bootstrap-table.js"></script>
-<script type="text/javascript" src="bootstrapTable/bootstrap-table-locale-all.min.js"></script>
+
+<!--script type="text/javascript" src="bootstrapTable/bootstrap-table-locale-all.min.js"></script-->
 
 <script type="text/javascript" src="media/js/DT_bootstrap.js"></script>
 <script type="text/javascript" src="layer/layer.js"></script>
@@ -1331,7 +1333,7 @@
             //---初始化表格,动态从服务器加载数据---
             this.obj.bootstrapTable({
                 //【发出请求的基础信息】
-                url: '/Home/GetDepartment',
+                url: '/Home/getUserInfo',
                 method: 'post',
                 contentType: "application/x-www-form-urlencoded",
 
@@ -1376,10 +1378,13 @@
                 //【设置列】
                 columns: [
                     {checkbox: true},
-                    {field: 'id', title: 'id'},
+                    //{field: 'id', title: 'id'},
                     {field: 'name', title: '姓名'},
+                    {field: 'phone', title: '手机'},
+                    {field: 'sex', title: '性别'},
                     {field: 'age', title: '年龄'},
-                    {field: 'phone', title: '手机'}
+                    {field: 'createTime', title: '注册时间'},
+                    {field: 'remark', title: '备注'}
 
                 ]
             })
@@ -1396,7 +1401,7 @@
             $(".search").click(function () {
                 var searchArgs = {
                     name: $("input[name='name']").val(),
-                    age: $("input[name='age']").val()
+                    phone: $("input[name='phone']").val()
                 };
                 bstpTable.inint(searchArgs)
             });
@@ -1438,6 +1443,8 @@
                 userdata = arrselections[0];
                 $("#id").val(userdata.id);
                 $("#save_name").val(userdata.name);
+                $("#save_sex").val(userdata.sex);
+
                 $("#save_age").val(userdata.age);
                 $("#save_phone").val(userdata.phone);
 
@@ -1447,6 +1454,7 @@
             $("#save").click(function() {
                 var id = $("#id").val();
                 var save_name = $("#save_name").val();
+                var save_sex = $("#save_sex").val();
                 var save_age = $("#save_age").val();
                 var save_phone = $("#save_phone").val();
                 if (id=="") {parent.layer.msg('未选择用户！');return false;}
@@ -1481,6 +1489,7 @@
                 var json = {
                     "id": $("#id").val(),
                     "name": $("#save_name").val(),
+                    "sex": $("#save_sex").val(),
                     "age": $("#save_age").val(),
                     "phone": $("#save_phone").val()
                 };
