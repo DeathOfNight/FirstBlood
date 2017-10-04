@@ -1,19 +1,23 @@
 package com.example.demo.data;
 
 
+import com.example.demo.base.AccountTypeEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(
         name = "user_info"
 )
-public class UserInfo  {
+public class UserInfo implements Serializable {
+    private static final long serialVersionUID = 1L;
+
 
     /**
      * 会员ID
@@ -42,6 +46,10 @@ public class UserInfo  {
      * 会员性别
      */
     private String sex;
+
+
+    //账户类型
+    private AccountTypeEnum accountType;
 
 
     /**
@@ -99,6 +107,14 @@ public class UserInfo  {
         this.sex = sex;
     }
 
+    public AccountTypeEnum getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(AccountTypeEnum accountType) {
+        this.accountType = accountType;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -123,6 +139,7 @@ public class UserInfo  {
                 ", phone='" + phone + '\'' +
                 ", age=" + age +
                 ", sex='" + sex + '\'' +
+                ", accountType=" + accountType +
                 ", createTime=" + createTime +
                 ", remark='" + remark + '\'' +
                 '}';

@@ -12,7 +12,7 @@
 
 	<meta charset="utf-8" />
 
-	<title>Metronic | UI Features - jQuery UI Components</title>
+	<title>Metronic | Form Stuff - Form Validation</title>
 
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -42,7 +42,9 @@
 
 	<!-- BEGIN PAGE LEVEL STYLES -->
 
-	<link rel="stylesheet" type="text/css" href="media/css/jquery-ui-1.10.1.custom.min.css/>
+	<link rel="stylesheet" type="text/css" href="media/css/select2_metro.css" />
+
+	<link rel="stylesheet" type="text/css" href="media/css/chosen.css" />
 
 	<!-- END PAGE LEVEL STYLES -->
 
@@ -84,441 +86,7 @@
 
 				</a>          
 
-				<!-- END RESPONSIVE MENU TOGGLER -->            
-
-				<!-- BEGIN TOP NAVIGATION MENU -->              
-
-				<ul class="nav pull-right">
-
-					<!-- BEGIN NOTIFICATION DROPDOWN -->   
-
-					<li class="dropdown" id="header_notification_bar">
-
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-						<i class="icon-warning-sign"></i>
-
-						<span class="badge">6</span>
-
-						</a>
-
-						<ul class="dropdown-menu extended notification">
-
-							<li>
-
-								<p>You have 14 new notifications</p>
-
-							</li>
-
-							<li>
-
-								<a href="#">
-
-								<span class="label label-success"><i class="icon-plus"></i></span>
-
-								New user registered. 
-
-								<span class="time">Just now</span>
-
-								</a>
-
-							</li>
-
-							<li>
-
-								<a href="#">
-
-								<span class="label label-important"><i class="icon-bolt"></i></span>
-
-								Server #12 overloaded. 
-
-								<span class="time">15 mins</span>
-
-								</a>
-
-							</li>
-
-							<li>
-
-								<a href="#">
-
-								<span class="label label-warning"><i class="icon-bell"></i></span>
-
-								Server #2 not respoding.
-
-								<span class="time">22 mins</span>
-
-								</a>
-
-							</li>
-
-							<li>
-
-								<a href="#">
-
-								<span class="label label-info"><i class="icon-bullhorn"></i></span>
-
-								Application error.
-
-								<span class="time">40 mins</span>
-
-								</a>
-
-							</li>
-
-							<li>
-
-								<a href="#">
-
-								<span class="label label-important"><i class="icon-bolt"></i></span>
-
-								Database overloaded 68%. 
-
-								<span class="time">2 hrs</span>
-
-								</a>
-
-							</li>
-
-							<li>
-
-								<a href="#">
-
-								<span class="label label-important"><i class="icon-bolt"></i></span>
-
-								2 user IP blocked.
-
-								<span class="time">5 hrs</span>
-
-								</a>
-
-							</li>
-
-							<li class="external">
-
-								<a href="#">See all notifications <i class="m-icon-swapright"></i></a>
-
-							</li>
-
-						</ul>
-
-					</li>
-
-					<!-- END NOTIFICATION DROPDOWN -->
-
-					<!-- BEGIN INBOX DROPDOWN -->
-
-					<li class="dropdown" id="header_inbox_bar">
-
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-						<i class="icon-envelope"></i>
-
-						<span class="badge">5</span>
-
-						</a>
-
-						<ul class="dropdown-menu extended inbox">
-
-							<li>
-
-								<p>You have 12 new messages</p>
-
-							</li>
-
-							<li>
-
-								<a href="inbox.html?a=view">
-
-								<span class="photo"><img src="media/image/avatar2.jpg" alt="" /></span>
-
-								<span class="subject">
-
-								<span class="from">Lisa Wong</span>
-
-								<span class="time">Just Now</span>
-
-								</span>
-
-								<span class="message">
-
-								Vivamus sed auctor nibh congue nibh. auctor nibh
-
-								auctor nibh...
-
-								</span>  
-
-								</a>
-
-							</li>
-
-							<li>
-
-								<a href="inbox.html?a=view">
-
-								<span class="photo"><img src="media/image/avatar3.jpg" alt="" /></span>
-
-								<span class="subject">
-
-								<span class="from">Richard Doe</span>
-
-								<span class="time">16 mins</span>
-
-								</span>
-
-								<span class="message">
-
-								Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh
-
-								auctor nibh...
-
-								</span>  
-
-								</a>
-
-							</li>
-
-							<li>
-
-								<a href="inbox.html?a=view">
-
-								<span class="photo"><img src="media/image/avatar1.jpg" alt="" /></span>
-
-								<span class="subject">
-
-								<span class="from">Bob Nilson</span>
-
-								<span class="time">2 hrs</span>
-
-								</span>
-
-								<span class="message">
-
-								Vivamus sed nibh auctor nibh congue nibh. auctor nibh
-
-								auctor nibh...
-
-								</span>  
-
-								</a>
-
-							</li>
-
-							<li class="external">
-
-								<a href="inbox.html">See all messages <i class="m-icon-swapright"></i></a>
-
-							</li>
-
-						</ul>
-
-					</li>
-
-					<!-- END INBOX DROPDOWN -->
-
-					<!-- BEGIN TODO DROPDOWN -->
-
-					<li class="dropdown" id="header_task_bar">
-
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-						<i class="icon-tasks"></i>
-
-						<span class="badge">5</span>
-
-						</a>
-
-						<ul class="dropdown-menu extended tasks">
-
-							<li>
-
-								<p>You have 12 pending tasks</p>
-
-							</li>
-
-							<li>
-
-								<a href="#">
-
-								<span class="task">
-
-								<span class="desc">New release v1.2</span>
-
-								<span class="percent">30%</span>
-
-								</span>
-
-								<span class="progress progress-success ">
-
-								<span style="width: 30%;" class="bar"></span>
-
-								</span>
-
-								</a>
-
-							</li>
-
-							<li>
-
-								<a href="#">
-
-								<span class="task">
-
-								<span class="desc">Application deployment</span>
-
-								<span class="percent">65%</span>
-
-								</span>
-
-								<span class="progress progress-danger progress-striped active">
-
-								<span style="width: 65%;" class="bar"></span>
-
-								</span>
-
-								</a>
-
-							</li>
-
-							<li>
-
-								<a href="#">
-
-								<span class="task">
-
-								<span class="desc">Mobile app release</span>
-
-								<span class="percent">98%</span>
-
-								</span>
-
-								<span class="progress progress-success">
-
-								<span style="width: 98%;" class="bar"></span>
-
-								</span>
-
-								</a>
-
-							</li>
-
-							<li>
-
-								<a href="#">
-
-								<span class="task">
-
-								<span class="desc">Database migration</span>
-
-								<span class="percent">10%</span>
-
-								</span>
-
-								<span class="progress progress-warning progress-striped">
-
-								<span style="width: 10%;" class="bar"></span>
-
-								</span>
-
-								</a>
-
-							</li>
-
-							<li>
-
-								<a href="#">
-
-								<span class="task">
-
-								<span class="desc">Web server upgrade</span>
-
-								<span class="percent">58%</span>
-
-								</span>
-
-								<span class="progress progress-info">
-
-								<span style="width: 58%;" class="bar"></span>
-
-								</span>
-
-								</a>
-
-							</li>
-
-							<li>
-
-								<a href="#">
-
-								<span class="task">
-
-								<span class="desc">Mobile development</span>
-
-								<span class="percent">85%</span>
-
-								</span>
-
-								<span class="progress progress-success">
-
-								<span style="width: 85%;" class="bar"></span>
-
-								</span>
-
-								</a>
-
-							</li>
-
-							<li class="external">
-
-								<a href="#">See all tasks <i class="m-icon-swapright"></i></a>
-
-							</li>
-
-						</ul>
-
-					</li>
-
-					<!-- END TODO DROPDOWN -->
-
-					<!-- BEGIN USER LOGIN DROPDOWN -->
-
-					<li class="dropdown user">
-
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-						<img alt="" src="media/image/avatar1_small.jpg" />
-
-						<span class="username">Bob Nilson</span>
-
-						<i class="icon-angle-down"></i>
-
-						</a>
-
-						<ul class="dropdown-menu">
-
-							<li><a href="extra_profile.html"><i class="icon-user"></i> My Profile</a></li>
-
-							<li><a href="page_calendar.html"><i class="icon-calendar"></i> My Calendar</a></li>
-
-							<li><a href="inbox.html"><i class="icon-envelope"></i> My Inbox(3)</a></li>
-
-							<li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
-
-							<li class="divider"></li>
-
-							<li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>
-
-							<li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
-
-						</ul>
-
-					</li>
-
-					<!-- END USER LOGIN DROPDOWN -->
-
-				</ul>
-
-				<!-- END TOP NAVIGATION MENU --> 
+				<!-- END RESPONSIVE MENU TOGGLER -->
 
 			</div>
 
@@ -538,7 +106,7 @@
 
 		<div class="page-sidebar nav-collapse collapse">
 
-			<!-- BEGIN SIDEBAR MENU -->        
+			<!-- BEGIN 导航栏-->
 
 			<ul class="page-sidebar-menu">
 
@@ -552,27 +120,7 @@
 
 				</li>
 
-				<li>
 
-					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
-
-					<form class="sidebar-search">
-
-						<div class="input-box">
-
-							<a href="javascript:;" class="remove"></a>
-
-							<input type="text" placeholder="Search..." />
-
-							<input type="button" class="submit" value=" " />
-
-						</div>
-
-					</form>
-
-					<!-- END RESPONSIVE QUICK SEARCH FORM -->
-
-				</li>
 
 				<li class="start ">
 
@@ -604,7 +152,7 @@
 
 							<a href="layout_horizontal_sidebar_menu.html">
 
-							Horzontal & Sidebar Menu</a>
+							Horzontal &amp; Sidebar Menu</a>
 
 						</li>
 
@@ -684,7 +232,7 @@
 
 				</li>
 
-				<li class="active ">
+				<li class="">
 
 					<a href="javascript:;">
 
@@ -692,9 +240,7 @@
 
 					<span class="title">UI Features</span>
 
-					<span class="selected"></span>
-
-					<span class="arrow open"></span>
+					<span class="arrow "></span>
 
 					</a>
 
@@ -728,11 +274,11 @@
 
 							<a href="ui_tabs_accordions.html">
 
-							Tabs & Accordions</a>
+							Tabs &amp; Accordions</a>
 
 						</li>
 
-						<li class="active">
+						<li >
 
 							<a href="ui_jqueryui.html">
 
@@ -784,79 +330,6 @@
 
 				</li>
 
-				<li class="">
-
-					<a href="javascript:;">
-
-					<i class="icon-table"></i> 
-
-					<span class="title">Form Stuff</span>
-
-					<span class="arrow "></span>
-
-					</a>
-
-					<ul class="sub-menu">
-
-						<li >
-
-							<a href="form_layout.html">
-
-							Form Layouts</a>
-
-						</li>
-
-						<li >
-
-							<a href="form_samples.html">
-
-							Advance Form Samples</a>
-
-						</li>
-
-						<li >
-
-							<a href="form_component.html">
-
-							Form Components</a>
-
-						</li>
-
-						<li >
-
-							<a href="form_wizard.html">
-
-							Form Wizard</a>
-
-						</li>
-
-						<li >
-
-							<a href="form_validation.html">
-
-							Form Validation</a>
-
-						</li>
-
-						<li >
-
-							<a href="form_fileupload.html">
-
-							Multiple File Upload</a>
-
-						</li>
-
-						<li >
-
-							<a href="form_dropzone.html">
-
-							Dropzone File Upload</a>
-
-						</li>
-
-					</ul>
-
-				</li>
 
 				<li class="">
 
@@ -1296,58 +769,28 @@
 
 				</li>
 
-				<li class="">
+				<li class="active ">
 
 					<a href="javascript:;">
 
-					<i class="icon-th"></i> 
+						<i class="icon-th"></i>
 
-					<span class="title">Data Tables</span>
+						<span class="title">客户管理</span>
 
-					<span class="arrow "></span>
+						<span class="selected"></span>
+
+						<span class="arrow open"></span>
 
 					</a>
 
 					<ul class="sub-menu">
 
 						<li >
-
-							<a href="table_basic.html">
-
-							Basic Tables</a>
-
+							<a href="userInfo_add.html">客户注册</a>
 						</li>
 
-						<li >
-
-							<a href="table_responsive.html">
-
-							Responsive Tables</a>
-
-						</li>
-
-						<li >
-
-							<a href="table_managed.html">
-
-							Managed Tables</a>
-
-						</li>
-
-						<li >
-
-							<a href="table_editable.html">
-
-							Editable Tables</a>
-
-						</li>
-
-						<li >
-
-							<a href="table_advanced.html">
-
-							Advanced Tables</a>
-
+						<li class="active">
+							<a href="userInfo_managed.html">客户维护</a>
 						</li>
 
 					</ul>
@@ -1442,7 +885,7 @@
 
 		<!-- END SIDEBAR -->
 
-		<!-- BEGIN PAGE -->  
+		<!-- BEGIN 页面 -->
 
 		<div class="page-content">
 
@@ -1512,7 +955,7 @@
 
 									<select class="layout-option m-wrap small">
 
-										<option value="fluid" selected>Fluid</option>
+										<option value="fluid" selected="selected">Fluid</option>
 
 										<option value="boxed">Boxed</option>
 
@@ -1526,7 +969,7 @@
 
 									<select class="header-option m-wrap small">
 
-										<option value="fixed" selected>Fixed</option>
+										<option value="fixed" selected="selected">Fixed</option>
 
 										<option value="default">Default</option>
 
@@ -1542,7 +985,7 @@
 
 										<option value="fixed">Fixed</option>
 
-										<option value="default" selected>Default</option>
+										<option value="default" selected="selected">Default</option>
 
 									</select>
 
@@ -1556,7 +999,7 @@
 
 										<option value="fixed">Fixed</option>
 
-										<option value="default" selected>Default</option>
+										<option value="default" selected="selected">Default</option>
 
 									</select>
 
@@ -1566,13 +1009,13 @@
 
 						</div>
 
-						<!-- END BEGIN STYLE CUSTOMIZER -->   
+						<!-- END BEGIN STYLE CUSTOMIZER -->     
 
 						<h3 class="page-title">
 
-							jQuery UI Components
+							客户注册
 
-							 <small>jquery ui components</small>
+							 <small>客户注册信息</small>
 
 						</h3>
 
@@ -1582,7 +1025,7 @@
 
 								<i class="icon-home"></i>
 
-								<a href="index.html">Home</a> 
+								<a href="index.html">首页</a>
 
 								<span class="icon-angle-right"></span>
 
@@ -1590,13 +1033,13 @@
 
 							<li>
 
-								<a href="#">UI Features</a>
+								<a href="#">客户管理</a>
 
 								<span class="icon-angle-right"></span>
 
 							</li>
 
-							<li><a href="#">jQuery UI Components</a></li>
+							<li><a href="#">客户注册</a></li>
 
 						</ul>
 
@@ -1608,155 +1051,177 @@
 
 				<!-- BEGIN PAGE CONTENT-->
 
-				<div class="row-fluid">
-
+			<!--	<div class="row-fluid">
 					<div class="span12">
+						&lt;!&ndash; BEGIN VALIDATION STATES&ndash;&gt;
 
-						<!-- BEGIN PORTLET-->   
-
-						<div class="portlet box green">
+						<div class="portlet box blue">
 
 							<div class="portlet-title">
 
-								<div class="caption"><i class="icon-reorder"></i>jQuery UI Dialogs</div>
+								<div class="caption"><i class="icon-reorder"></i>Validation States</div>
 
 								<div class="tools">
 
 									<a href="javascript:;" class="collapse"></a>
 
+									<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
 									<a href="javascript:;" class="reload"></a>
+
+									<a href="javascript:;" class="remove"></a>
 
 								</div>
 
 							</div>
 
-							<div class="portlet-body form">
+							&lt;!&ndash;<div class="portlet-body form">
 
-								<div id="dialog_basic1" title="Basic dialog" class="hide">
+								<h3 class="block">Basic validation states</h3>
 
-									<p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+								&lt;!&ndash; BEGIN FORM&ndash;&gt;
 
-								</div>
+								<form action="#" class="form-horizontal">
 
-								<div id="dialog_basic2" title="Basic dialog" class="hide">
+									<div class="control-group warning">
 
-									<p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+										<label class="control-label" for="inputWarning">Input with warning</label>
 
-								</div>
+										<div class="controls">
 
-								<div id="dialog_basic3" title="Basic dialog" class="hide">
+											<input type="text" class="span6 m-wrap" id="inputWarning" />
 
-									<p>This is a animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+											<span class="help-inline">Something may have gone wrong</span>
 
-								</div>
-
-								<div id="dialog_basic4" title="Basic dialog" class="hide">
-
-									<p>This is a dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
-
-								</div>
-
-								<div id="dialog_confirm" title="Empty the recycle bin?" class="hide">
-
-									<p><span class="icon icon-warning-sign"></span>
-
-										These items will be permanently deleted and cannot be recovered. Are you sure?
-
-									</p>
-
-								</div>
-
-								<div id="dialog_info" title="Download complete" class="hide">
-
-									<p>
-
-										<span class="icon icon-bullhorn"></span>
-
-										Your files have downloaded successfully into the My Downloads folder.
-
-									</p>
-
-									Currently using 36% of your storage space.
-
-									<div class="progress progress-striped">
-
-										<div style="width: 36%;" class="bar"></div>
+										</div>
 
 									</div>
 
-								</div>
+									<div class="control-group error">
 
-								<table class="table table-hover table-striped table-bordered">
+										<label class="control-label" for="inputError">Input with error</label>
 
-									<tr>
+										<div class="controls">
 
-										<td>Basic Dialog with Animation 1</td>
+											<input type="text" class="span6 m-wrap" id="inputError" />
 
-										<td><button id="basic_opener1" class="btn yellow">Open Dialog</button></td>
+											<span class="help-inline">Please correct the error</span>
 
-									</tr>
+										</div>
 
-									<tr>
+									</div>
 
-										<td>Basic Dialog with Animation 2</td>
+									<div class="control-group success">
 
-										<td><button id="basic_opener2" class="btn purple">Open Dialog</button></td>
+										<label class="control-label" for="inputSuccess">Input with success</label>
 
-									</tr>
+										<div class="controls">
 
-									<tr>
+											<input type="text" class="span6 m-wrap" id="inputSuccess" />
 
-										<td>Basic Dialog with Animation 3</td>
+											<span class="help-inline ok"></span>
 
-										<td><button id="basic_opener3" class="btn grey">Open Dialog</button></td>
+										</div>
 
-									</tr>
+									</div>
 
-									<tr>
+									<div class="control-group warning">
 
-										<td>Basic Draggable & Resiable Dialog</td>
+										<label class="control-label">Input with warning</label>
 
-										<td><button id="basic_opener4" class="btn red">Open Dialog</button></td>
+										<div class="controls input-icon">
 
-									</tr>
+											<input type="text" class="span6 m-wrap" />
 
-									<tr>
+											<span class="input-warning tooltips" data-original-title="please write a valid email">
 
-										<td>Info Modal Dialog</td>
+											<i class="icon-warning-sign"></i>
 
-										<td><button id="info_opener" class="btn blue">Open Dialog</button></td>
+											</span>
 
-									</tr>
+										</div>
 
-									<tr>
+									</div>
 
-										<td>Confirm Modal Dialog</td>
+									<div class="control-group error">
 
-										<td><button id="confirm_opener" class="btn green">Open Dialog</button></td>
+										<label class="control-label">Input with error</label>
 
-									</tr>
+										<div class="controls input-icon">
 
-								</table>
+											<input type="text" class="span6 m-wrap" />
+
+											<span class="input-error tooltips" data-original-title="please write a valid email">
+
+											<i class="icon-exclamation-sign"></i>
+
+											</span>
+
+										</div>
+
+									</div>
+
+									<div class="control-group success">
+
+										<label class="control-label">Input with success</label>
+
+										<div class="controls input-icon">
+
+											<input type="text" class="span6 m-wrap" />
+
+											<span class="input-success tooltips" data-original-title="Success input!">
+
+											<i class="icon-ok"></i>
+
+											</span>
+
+										</div>
+
+									</div>
+
+									<div class="form-actions">
+
+										<button type="submit" class="btn blue">Save</button>
+
+										<button type="button" class="btn">Cancel</button>
+
+									</div>
+
+								</form>
+
 
 							</div>
 
 						</div>
 
-						<!-- END PORTLET-->
+						&lt;!&ndash; END VALIDATION STATES&ndash;&gt;
 
-						<!-- BEGIN PORTLET-->   
+					</div>
 
-						<div class="portlet box yellow">
+				</div>-->
+
+				<!-- 客户注册 表单-->
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN VALIDATION STATES-->
+
+						<div class="portlet box green">
 
 							<div class="portlet-title">
 
-								<div class="caption"><i class="icon-reorder"></i>jQuery UI Date Pickers</div>
+								<div class="caption"><i class="icon-reorder"></i>客户注册</div>
 
 								<div class="tools">
 
 									<a href="javascript:;" class="collapse"></a>
 
+									<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
 									<a href="javascript:;" class="reload"></a>
+
+									<a href="javascript:;" class="remove"></a>
 
 								</div>
 
@@ -1766,15 +1231,31 @@
 
 								<!-- BEGIN FORM-->
 
-								<form action="#" class="form-horizontal form-row-seperated">
+								<form action="#" id="form_userInfo" class="form-horizontal">
+
+									<div class="alert alert-error hide">
+
+										<button class="close" data-dismiss="alert"></button>
+
+										You have some form errors. Please check below.
+
+									</div>
+
+									<div class="alert alert-success hide">
+
+										<button class="close" data-dismiss="alert"></button>
+
+										Your form validation is successful!
+
+									</div>
 
 									<div class="control-group">
 
-										<label class="control-label">Default datepicker</label>
+										<label class="control-label">姓名<span class="required">*</span></label>
 
 										<div class="controls">
 
-											<input class="m-wrap" size="16" type="text" value="" id="ui_date_picker"/>
+											<input type="text"  id="name" name="name" data-required="1" class="span6 m-wrap"/>
 
 										</div>
 
@@ -1782,15 +1263,40 @@
 
 									<div class="control-group">
 
-										<label class="control-label">Custom Trigger</label>
+										<label class="control-label">性别 <span class="required">*</span></label>
 
 										<div class="controls">
 
-											<div class="input-append" id="ui_date_picker_trigger">
+											<label class="radio line">
 
-												<input type="text" class="m-wrap medium" /><span class="add-on"><i class="icon-calendar"></i></span>
+												<input  type="radio" name="sex"  value="男" />
 
-											</div>
+												男
+
+											</label>
+
+											<label class="radio line">
+
+												<input  type="radio" name="sex" value="女" />
+
+												女
+
+											</label>
+
+											<div id="form_2_membership_error"></div>
+
+										</div>
+
+									</div>
+
+
+									<div class="control-group">
+
+										<label class="control-label">年龄&nbsp;&nbsp;</label>
+
+										<div class="controls">
+
+											<input id="age"  name="age" type="text" class="span6 m-wrap"/>
 
 										</div>
 
@@ -1798,89 +1304,129 @@
 
 									<div class="control-group">
 
-										<label class="control-label">With Button Bar</label>
+										<label class="control-label">手机号&nbsp;<span class="required">*</span></label>
 
 										<div class="controls">
 
-											<input class="m-wrap" size="16" type="text" value="" id="ui_date_picker_with_button_bar"/>
+											<input   id="phone" name="phone" type="text" class="span6 m-wrap"/>
 
 										</div>
 
 									</div>
+
 
 									<div class="control-group">
 
-										<label class="control-label">Display month & year menus</label>
+										<label class="control-label">备注&nbsp;&nbsp;</label>
 
 										<div class="controls">
 
-											<input class="m-wrap" size="16" type="text" value="" id="ui_date_picker_change_year_month"/>
+											<input   id="remark" name="remark" type="text" class="span6 m-wrap"/>
 
 										</div>
 
 									</div>
 
-									<div class="control-group">
+									<!--<div class="control-group">
 
-										<label class="control-label">Multiple Months</label>
-
-										<div class="controls">
-
-											<input class="m-wrap" size="16" type="text" value="" id="ui_date_picker_multiple"/>
-
-										</div>
-
-									</div>
-
-									<div class="control-group">
-
-										<label class="control-label">Date Range</label>
+										<label class="control-label">Category<span class="required">*</span></label>
 
 										<div class="controls">
 
-											<input class="m-wrap small" size="16" type="text" value="" id="ui_date_picker_range_from"/>
+											<select class="span6 m-wrap" name="category">
 
-											<span class="text-inline">&nbsp;to&nbsp;</span>
+												<option value="">Select...</option>
 
-											<input class="m-wrap small" size="16" type="text" value="" id="ui_date_picker_range_to"/>
+												<option value="Category 1">Category 1</option>
+
+												<option value="Category 2">Category 2</option>
+
+												<option value="Category 3">Category 5</option>
+
+												<option value="Category 4">Category 4</option>
+
+											</select>
 
 										</div>
 
-									</div>
+									</div>-->
 
-									<div class="control-group">
+									<!--<div class="control-group">
 
-										<label class="control-label">Week of the Year</label>
+										<label class="control-label">Chosen Dropdown<span class="required">*</span></label>
+
+										<div class="controls chzn-controls">
+
+											<select id="form_2_chosen" class="span6 chosen" data-with-diselect="1" name="options1" data-placeholder="Choose an Option" tabindex="1">
+
+												<option value=""></option>
+
+												<option value="Option 1">Option 1</option>
+
+												<option value="Option 2">Option 2</option>
+
+												<option value="Option 3">Option 3</option>
+
+												<option value="Option 4">Option 4</option>
+
+											</select>
+
+										</div>
+
+									</div>-->
+
+
+
+
+									<!--<div class="control-group">
+
+										<label class="control-label">Services<span class="required">*</span></label>
 
 										<div class="controls">
 
-											<input class="m-wrap" size="16" type="text" value="" id="ui_date_picker_week_year"/>
+											<label class="checkbox line">
+
+											<input type="checkbox" value="1" name="service"/> Service 1
+
+											</label>
+
+											<label class="checkbox line">
+
+											<input type="checkbox" value="2" name="service"/> Service 2
+
+											</label>
+
+											<label class="checkbox line">
+
+											<input type="checkbox" value="3" name="service"/> Service 3
+
+											</label>
+
+											<span class="help-block">(select at least two)</span>
+
+											<div id="form_2_service_error"></div>
 
 										</div>
 
-									</div>
+									</div>-->
 
-									<div class="control-group last">
+									<div class="form-actions">
 
-										<label class="control-label">Inline</label>
+										<!--button type="submit" class="btn green">Validate</button-->
 
-										<div class="controls">
-
-											<div id="ui_date_picker_inline"></div>
-
-										</div>
+										<button id= "add" type="button" class="btn">注册</button>
 
 									</div>
 
 								</form>
 
-								<!-- END FORM-->  
+								<!-- END FORM-->
 
 							</div>
 
 						</div>
 
-						<!-- END PORTLET-->
+						<!-- END VALIDATION STATES-->
 
 					</div>
 
@@ -1906,7 +1452,7 @@
 
 		<div class="footer-inner">
 
-			2013 &copy; Metronic by keenthemes.Collect from <a href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
+			2017 &amp;copy; ZHANGJUN
 
 		</div>
 
@@ -1956,23 +1502,74 @@
 
 	<!-- END CORE PLUGINS -->
 
-	<!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+
+	<script type="text/javascript" src="media/js/jquery.validate.min.js"></script>
+
+	<script type="text/javascript" src="media/js/additional-methods.min.js"></script>
+
+	<script type="text/javascript" src="media/js/select2.min.js"></script>
+
+	<script type="text/javascript" src="media/js/chosen.jquery.min.js"></script>
+
+	<!-- END PAGE LEVEL PLUGINS -->
+
+	<!-- BEGIN PAGE LEVEL STYLES -->
 
 	<script src="media/js/app.js"></script>
 
-	<script src="media/js/ui-jqueryui.js"></script>     
+	<script src="media/js/form-validation.js"></script>
+	<script type="text/javascript" src="layer/layer.js"></script>
 
-	<!-- END PAGE LEVEL SCRIPTS -->
+	<!-- END PAGE LEVEL STYLES -->    
 
 	<script>
 
-		jQuery(document).ready(function() {       
+		jQuery(document).ready(function() {   
 
 		   // initiate layout and plugins
 
 		   App.init();
 
-		   UIJQueryUI.init();
+		  // FormValidation.init();
+
+			$("#add").click(function (){
+				$.ajax({
+					async: false,
+					type: "post",
+					dataType: 'json',
+					contentType: 'application/json; charset=utf-8',
+					url: "/Home/add",
+					data: JSON.stringify(jsonAddData()),
+					success: function (data, status) {
+						if (status == "success" ) {
+							layer.alert('注册客户信息提交成功，待验证！');
+						}
+					},
+					error: function () {
+						alert('Error'+ JSON.stringify(jsonAddData()));
+					},
+					complete: function () {
+					}
+				});
+
+
+
+			});
+
+			function jsonAddData() {
+				var json = {
+					"name": $("#name").val(),
+					"phone": $("#phone").val(),
+					"sex": $('input[name="sex"]:checked').val(),
+					"age": $("#age").val(),
+					"remark": $("#remark").val()
+				};
+				return json;
+			}
+
+
+
 
 		});
 
