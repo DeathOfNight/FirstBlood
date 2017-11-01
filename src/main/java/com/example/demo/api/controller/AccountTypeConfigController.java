@@ -22,22 +22,20 @@ public class AccountTypeConfigController {
 
     private Log logger = LogFactory.getLog(this.getClass());
 
-    @RequestMapping(value = "Home/accountType/getAccountType",method = RequestMethod.POST)
+    @RequestMapping(value = "account/accountType/getAccountType",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getUserInfo(int pageSize,int pageNumber,String name,String phone){
+    public Map<String, Object> getAccountType(int pageSize,int pageNumber){
             /*所需参数*/
         Map<String, Object> param=new HashMap<String, Object>();
         int a=(pageNumber-1)*pageSize;
         int b=pageSize;
         param.put("a", a);
         param.put("b", b);
-        param.put("name", name);
-        param.put("phone", phone);
         return accountTypeConfigService.selectByPage(param);
     }
 
 
-    @RequestMapping(value = "/Home/accountType/delete",method = RequestMethod.POST)
+    @RequestMapping(value = "/account/accountType/delete",method = RequestMethod.POST)
     @ResponseBody
     public Boolean Delete(@RequestBody String   Id){
             /*所需参数*/
@@ -51,7 +49,7 @@ public class AccountTypeConfigController {
     }
 
 
-    @RequestMapping(value = "/Home/accountType/save",method = RequestMethod.POST)
+    @RequestMapping(value = "/account/accountType/update",method = RequestMethod.POST)
     @ResponseBody
     public Boolean save(@RequestBody AccountTypeConfig accountTypeConfig){
             /*所需参数*/

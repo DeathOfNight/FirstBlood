@@ -29,14 +29,14 @@ public class AccountTypeConfigService {
         //bootstrap-table要求服务器返回的json须包含：totlal，rows
         Map<String, Object> result = new HashMap<String, Object>();
         int total = accountTypeConfigDao.selectAcccountTypeBypage(null).size();
-        List<UserInfo> rows = accountTypeConfigDao.selectAcccountTypeBypage(param);
+        List<AccountTypeConfig> rows = accountTypeConfigDao.selectAcccountTypeBypage(param);
         result.put("total", total);
         result.put("rows", rows);
         return result;
     }
 
 
-    //删除会员信息
+    //删除账户类型配置信息
     @Transactional(propagation= Propagation.REQUIRED)
     public void delectById(String id) throws Exception {
         int i = 0;
@@ -55,19 +55,18 @@ public class AccountTypeConfigService {
 
 
     /**
-     * 更新会员信息
+     * 更新账户类型信息
      * @param accountTypeConfig
      * @throws Exception
      */
     @Transactional(propagation=Propagation.REQUIRED)
     public void updateUAccountType(AccountTypeConfig accountTypeConfig)throws Exception {
-        logger.info("修改用户的数据：");
 
         try {
             int i = accountTypeConfigDao.updateAccountType(accountTypeConfig);
         } catch (Exception e) {
-            logger.error("更新客户信息表失败",e);
-            throw new Exception("更新客户信息表失败");
+            logger.error("更新账户类型失败",e);
+            throw new Exception("更新账户类型失败");
         }
 
         return;

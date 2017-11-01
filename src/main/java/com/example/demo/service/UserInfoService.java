@@ -83,17 +83,20 @@ public class UserInfoService {
 
         logger.info("注册用户信息："
                 + "姓名:" +userInfo.getName()
-                + "|年龄:" + userInfo.getAge()
+                + "账户类型" + userInfo.getAccountType()
                 + "|手机号:" + userInfo.getPhone()
-                + "|性别:" + userInfo.getSex()
-                + "备注:" + userInfo.getRemark()
         );
+        int i = 0;
         try {
             userInfo.setId(java.util.UUID.randomUUID().toString());
             userInfo.setCreateTime(new Date());
-            int i = userInfoDao.addUserInfo(userInfo);
+             i = userInfoDao.addUserInfo(userInfo);
         } catch (Exception e) {
             logger.error("新增客户信息表失败",e);
+            throw new Exception("新增客户信息表失败");
+        }
+        if(i != 1){
+            logger.error("新增客户信息表失败,手机号为" + userInfo.getPhone());
             throw new Exception("新增客户信息表失败");
         }
 

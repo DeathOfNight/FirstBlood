@@ -18,7 +18,7 @@ public interface AccountTypeConfigDao {
      * @param map
      * @return
      */
-    List<UserInfo> selectAcccountTypeBypage(Map<String, Object> map);
+    List<AccountTypeConfig> selectAcccountTypeBypage(Map<String, Object> map);
 
 
     /**

@@ -53,8 +53,7 @@ public class UserInfoController {
     @ResponseBody
     public Boolean save(@RequestBody UserInfo   userInfo){
             /*所需参数*/
-        logger.info("保存的数据：" + userInfo.getId() + "===" + userInfo.getName()
-                + "===" + userInfo.getAge() + "==" + userInfo.getPhone()+"=====sex:"+userInfo.getSex());
+        logger.info("保存的数据：" + userInfo.toString());
         try {
             userInfoService.updateUserInfo(userInfo);
         } catch (Exception e) {
@@ -64,15 +63,30 @@ public class UserInfoController {
     }
 
 
-    @RequestMapping(value = "/Home/add",method = RequestMethod.POST)
+    @RequestMapping(value = "/Home/addUserInfo",method = RequestMethod.POST)
     @ResponseBody
     public Boolean add(@RequestBody UserInfo   userInfo){
-            /*所需参数*/
+        /**
+         *  step 1 .user_Info客户表表中增加客户信息
+         */
         try {
             userInfoService.addUserInfo(userInfo);
         } catch (Exception e) {
             return false;
         }
+        /**
+         * step 2 .账户类型配置表account_type_config中查询账户类型
+         */
+
+
+        /**
+         * step 3 账户表account表中新增账户信息
+         */
+
+
+
+
+
         return true;
     }
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.AccountTypeConfigDao">
+
+    <select id="selectAcccountTypeBypage" resultType="com.example.demo.data.AccountTypeConfig"  >
+        SELECT *
+        FROM ACCOUNT_TYPE_CONFIG
+        <if test="a!=null">
+            LIMIT #{a},#{b}
+        </if>
+    </select>
+
+    <delete id="delectById">
+        DELETE
+        FROM ACCOUNT_TYPE_CONFIG
+        <where>
+            id = #{id}
+        </where>
+    </delete>
+
+</mapper>
