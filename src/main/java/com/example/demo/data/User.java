@@ -16,11 +16,11 @@ import java.util.List;
 )
 public class User implements UserDetails {
 
-    String username;
+    String username = "admin";
 
     String role;
 
-    String password;
+    String password = "admin";
 
     // UserDetails的角色资源属性集合
     private List<GrantedAuthority> authorities;
