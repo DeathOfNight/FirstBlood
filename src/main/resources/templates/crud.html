@@ -1,19 +1,21 @@
-﻿﻿<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html lang="zh-cn">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8"/>
+<!--
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+-->
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>通用增删改查</title>
 
-	<link href="resources/plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
-	<link href="resources/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
-	<link href="resources/plugins/bootstrap-table-1.11.0/bootstrap-table.min.css" rel="stylesheet"/>
-	<link href="resources/plugins/waves-0.7.5/waves.min.css" rel="stylesheet"/>
-	<link href="resources/plugins/jquery-confirm/jquery-confirm.min.css" rel="stylesheet"/>
-	<link href="resources/plugins/select2/css/select2.min.css" rel="stylesheet"/>
+	<link href="plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
+	<link href="plugins/bootstrap-table-1.11.0/bootstrap-table.min.css" rel="stylesheet"/>
+	<link href="plugins/waves-0.7.5/waves.min.css" rel="stylesheet"/>
+	<link href="plugins/jquery-confirm/jquery-confirm.min.css" rel="stylesheet"/>
+	<link href="plugins/select2/css/select2.min.css" rel="stylesheet"/>
 
-	<link href="resources/css/common.css" rel="stylesheet"/>
+	<link href="css/common.css" rel="stylesheet"/>
 </head>
 <body>
 <div id="main">
@@ -25,35 +27,35 @@
 	<table id="table"></table>
 </div>
 <!-- 新增 -->
-<div id="createDialog" class="crudDialog" hidden>
+<div id="createDialog" class="crudDialog" hidden="hidden">
 	<form>
 		<div class="form-group">
 			<label for="input1">标题</label>
-			<input id="input1" type="text" class="form-control">
+			<input id="input1" type="text" class="form-control"/>
 		</div>
 		<div class="form-group">
 			<label for="input2">名称</label>
-			<input id="input2" type="text" class="form-control">
+			<input id="input2" type="text" class="form-control"/>
 		</div>
 		<div class="form-group">
 			<label for="input3">根目录</label>
-			<input id="input3" type="text" class="form-control">
+			<input id="input3" type="text" class="form-control"/>
 		</div>
 		<div class="form-group">
 			<label for="input4">图标</label>
-			<input id="input4" type="text" class="form-control">
+			<input id="input4" type="text" class="form-control"/>
 		</div>
 	</form>
 </div>
-<script src="resources/plugins/jquery.1.12.4.min.js"></script>
-<script src="resources/plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
-<script src="resources/plugins/bootstrap-table-1.11.0/bootstrap-table.min.js"></script>
-<script src="resources/plugins/bootstrap-table-1.11.0/locale/bootstrap-table-zh-CN.min.js"></script>
-<script src="resources/plugins/waves-0.7.5/waves.min.js"></script>
-<script src="resources/plugins/jquery-confirm/jquery-confirm.min.js"></script>
-<script src="resources/plugins/select2/js/select2.min.js"></script>
+<script src="plugins/jquery.1.12.4.min.js"></script>
+<script src="plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
+<script src="plugins/bootstrap-table-1.11.0/bootstrap-table.min.js"></script>
+<script src="plugins/bootstrap-table-1.11.0/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="plugins/waves-0.7.5/waves.min.js"></script>
+<script src="plugins/jquery-confirm/jquery-confirm.min.js"></script>
+<script src="plugins/select2/js/select2.min.js"></script>
 
-<script src="resources/js/common.js"></script>
+<script src="js/common.js"></script>
 <script>
 var $table = $('#table');
 $(function() {
@@ -67,7 +69,7 @@ $(function() {
 	// bootstrap table初始化
 	// http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/
 	$table.bootstrapTable({
-		url: 'resources/data/data1.json',
+		url: 'data1.json',
 		height: getHeight(),
 		striped: true,
 		search: true,

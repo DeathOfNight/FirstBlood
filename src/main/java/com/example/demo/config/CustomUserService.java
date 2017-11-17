@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("customUserService")
 public class CustomUserService implements UserDetailsService {
     Log log = LogFactory.getLog(getClass());
 

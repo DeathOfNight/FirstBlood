@@ -12,15 +12,16 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
+    @Resource(name = "customUserService")
     private CustomUserService customUserService;
 
-    @Autowired
+    @Resource(name = "myAuthenticationProvider")
     private MyAuthenticationProvider myAuthenticationProvider;
 
     //处理权限查询数据库
@@ -46,18 +47,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/","/home","/templates/**",
+
+                .antMatchers("/","/home","/templates/**","/login",
                         "/bootstraptable/**","/media/**","/css/**","/images/**",
-                        "/js/**","/plugins/**").permitAll()
-                .anyRequest().authenticated()
+                        "/js/**","/plugins/**","/layer/**").permitAll()
+
+               // .anyRequest().authenticated()
                 .and()
-                .csrf().disable()
-            .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-            .logout()
-                .permitAll();
+                .headers().frameOptions().disable();
+//                .and()
+//                .csrf().disable()
+//            .formLogin()
+//                .loginPage("/login")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .permitAll();
     }
 
     //缓存设置用户

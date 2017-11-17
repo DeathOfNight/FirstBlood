@@ -1,9 +1,7 @@
 package com.example.demo.config;
-import com.example.demo.config.CustomUserService;
+
 import com.example.demo.data.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,10 +17,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import javax.annotation.Resource;
 import java.util.Collection;
 
 @Component
+@Service("myAuthenticationProvider")
 public class MyAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider  {
     private SaltSource saltSource;
     private PasswordEncoder passwordEncoder;
