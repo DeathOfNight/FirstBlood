@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             }}); //user Details Service验证
     }
 
-    //访问路径过滤
+    //访问路径过滤 一般用它来具体控制权限，角色，url等安全的东西。
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -54,9 +54,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                // .anyRequest().authenticated()
                 .and()
-                .headers().frameOptions().disable();
-//                .and()
-//                .csrf().disable()
+                .headers().frameOptions().disable()
+               .and()
+               .csrf().disable();
 //            .formLogin()
 //                .loginPage("/login")
 //                .permitAll()

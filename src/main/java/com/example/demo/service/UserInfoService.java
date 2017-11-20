@@ -25,14 +25,11 @@ public class UserInfoService {
 
     private Log logger = LogFactory.getLog(this.getClass());
 
-    public Map selectByPage(Map<String, Object> param) {
+    public List<UserInfo> selectByPage() {
         //bootstrap-table要求服务器返回的json须包含：totlal，rows
-        Map<String, Object> result = new HashMap<String, Object>();
-        int total = userInfoDao.selectUserInfoBypage(null).size();
-        List<UserInfo> rows = userInfoDao.selectUserInfoBypage(param);
-        result.put("total", total);
-        result.put("rows", rows);
-        return result;
+        List<UserInfo> rows = userInfoDao.selectUserInfoBypage();
+
+        return rows;
     }
 
 

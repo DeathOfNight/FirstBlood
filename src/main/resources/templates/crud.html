@@ -28,21 +28,21 @@
 </div>
 <!-- 新增 -->
 <div id="createDialog" class="crudDialog" hidden="hidden">
-	<form>
+	<form id="addForm">
 		<div class="form-group">
-			<label for="input1">标题</label>
+			<label for="input1">姓名</label>
 			<input id="input1" type="text" class="form-control"/>
 		</div>
 		<div class="form-group">
-			<label for="input2">名称</label>
+			<label for="input2">手机</label>
 			<input id="input2" type="text" class="form-control"/>
 		</div>
 		<div class="form-group">
-			<label for="input3">根目录</label>
+			<label for="input3">年龄</label>
 			<input id="input3" type="text" class="form-control"/>
 		</div>
 		<div class="form-group">
-			<label for="input4">图标</label>
+			<label for="input4">备注</label>
 			<input id="input4" type="text" class="form-control"/>
 		</div>
 	</form>
@@ -69,44 +69,43 @@ $(function() {
 	// bootstrap table初始化
 	// http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/
 	$table.bootstrapTable({
-		url: 'data1.json',
+		url: '/Home/getUserInfo',
 		height: getHeight(),
 		striped: true,
+		method: 'get',
 		search: true,
 		searchOnEnterKey: true,
-		showRefresh: true,
-		showToggle: true,
+		showRefresh: true,//刷新按钮
+		showToggle: true,//是否显示详细视图和列表视图的切换按钮
 		showColumns: true,
 		minimumCountColumns: 2,
 		showPaginationSwitch: true,
-		clickToSelect: true,
-		detailView: true,
+		clickToSelect: true,//是否启用点击选中行
+		detailView: true,//是否显示父子表
 		detailFormatter: 'detailFormatter',
-		pagination: true,
+		pagination: true,//是否开启分页（*）
 		paginationLoop: false,
 		classes: 'table table-hover table-no-bordered',
 		//sidePagination: 'server',
 		//silentSort: false,
+
+
+
 		smartDisplay: false,
 		idField: 'id',
 		sortName: 'id',
-		sortOrder: 'desc',
+		sortOrder: 'desc',//排序方式
 		escape: true,
-		searchOnEnterKey: true,
-		idField: 'systemId',
 		maintainSelected: true,
 		toolbar: '#toolbar',
 		columns: [
 			{field: 'state', checkbox: true},
 			{field: 'id', title: '编号', sortable: true, halign: 'center'},
-			{field: 'username', title: '账号', sortable: true, halign: 'center'},
-			{field: 'password', title: '密码', sortable: true, halign: 'center'},
 			{field: 'name', title: '姓名', sortable: true, halign: 'center'},
+			{field: 'phone', title: '手机', sortable: true, halign: 'center'},
 			{field: 'sex', title: '性别', sortable: true, halign: 'center'},
 			{field: 'age', title: '年龄', sortable: true, halign: 'center'},
-			{field: 'phone', title: '手机', sortable: true, halign: 'center'},
-			{field: 'email', title: '邮箱', sortable: true, halign: 'center'},
-			{field: 'address', title: '地址', sortable: true, halign: 'center'},
+			{field: 'createTime', title: '注册时间', sortable: true, halign: 'center'},
 			{field: 'remark', title: '备注', sortable: true, halign: 'center'},
 			{field: 'action', title: '操作', halign: 'center', align: 'center', formatter: 'actionFormatter', events: 'actionEvents', clickToSelect: false}
 		]
@@ -137,26 +136,40 @@ window.actionEvents = {
         console.log(value, row, index);
     }
 };
-function detailFormatter(index, row) {
-	var html = [];
-	$.each(row, function (key, value) {
-		html.push('<p><b>' + key + ':</b> ' + value + '</p>');
-	});
-	return html.join('');
-}
+
 // 新增
 function createAction() {
 	$.confirm({
 		type: 'dark',
 		animationSpeed: 300,
-		title: '新增系统',
+		title: '新增客户',
 		content: $('#createDialog').html(),
 		buttons: {
 			confirm: {
 				text: '确认',
 				btnClass: 'waves-effect waves-button',
 				action: function () {
-					$.alert('确认');
+					$.alert('确认新增' );
+                    $.ajax({
+                        async: false,
+                        type: "post",
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        url: "/Home/addUserInfo",
+                        //data: JSON.stringify(),
+                        data: $('#addForm').serialize(),
+                        success: function (data, status) {
+                            if (status == "success") {
+                                layer.alert('注册客户信息提交成功，待验证！');
+                            }
+                        },
+                        error: function () {
+                            alert('Error' + data);
+                        },
+                        complete: function () {
+                        }
+                    });
+
 				}
 			},
 			cancel: {

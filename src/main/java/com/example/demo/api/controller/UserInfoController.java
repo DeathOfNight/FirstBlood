@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,18 +21,12 @@ public class UserInfoController {
 
     private Log logger = LogFactory.getLog(this.getClass());
 
-    @RequestMapping(value = "Home/getUserInfo",method = RequestMethod.POST)
+    @RequestMapping(value = "Home/getUserInfo",method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, Object> getUserInfo(int pageSize,int pageNumber,String name,String phone){
+    public List<UserInfo> getUserInfo(){
             /*所需参数*/
-        Map<String, Object> param=new HashMap<String, Object>();
-        int a=(pageNumber-1)*pageSize;
-        int b=pageSize;
-        param.put("a", a);
-        param.put("b", b);
-        param.put("name", name);
-        param.put("phone", phone);
-        return userInfoService.selectByPage(param);
+        logger.info("开始查询客户信息");
+        return userInfoService.selectByPage();
     }
 
 

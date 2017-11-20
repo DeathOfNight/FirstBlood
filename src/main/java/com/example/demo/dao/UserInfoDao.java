@@ -14,10 +14,10 @@ import java.util.Map;
 public interface UserInfoDao {
     /**
      * 查询
-     * @param map
+     * @param
      * @return
      */
-    List<UserInfo> selectUserInfoBypage(Map<String,Object> map);
+    List<UserInfo> selectUserInfoBypage();
 
 
     /**

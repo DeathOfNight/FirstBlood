@@ -15,13 +15,7 @@
     <select id="selectUserInfoBypage" resultType="com.example.demo.data.UserInfo"  >
         SELECT *
         FROM USER_INFO
-        <if test="a!=null">
-            <where>
-                <if test="name!=null and name!=''"> name = #{name}</if>
-                <if test="phone!=null and phone!=''">AND  phone = #{phone}</if>
-            </where>
-            LIMIT #{a},#{b}
-        </if>
+
     </select>
 
     <delete id="delectById">
