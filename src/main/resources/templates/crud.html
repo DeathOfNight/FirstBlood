@@ -30,20 +30,16 @@
 <div id="createDialog" class="crudDialog" hidden="hidden">
 	<form id="addForm">
 		<div class="form-group">
-			<label for="input1">姓名</label>
-			<input id="input1" type="text" class="form-control"/>
+			<label for="name">姓名</label>
+			<input id="name" type="text" class="form-control"/>
 		</div>
 		<div class="form-group">
-			<label for="input2">手机</label>
-			<input id="input2" type="text" class="form-control"/>
+			<label for="phone">手机</label>
+			<input id="phone" type="text" class="form-control"/>
 		</div>
 		<div class="form-group">
-			<label for="input3">年龄</label>
-			<input id="input3" type="text" class="form-control"/>
-		</div>
-		<div class="form-group">
-			<label for="input4">备注</label>
-			<input id="input4" type="text" class="form-control"/>
+			<label for="remark">备注</label>
+			<input id="remark" type="text" class="form-control"/>
 		</div>
 	</form>
 </div>
@@ -54,6 +50,8 @@
 <script src="plugins/waves-0.7.5/waves.min.js"></script>
 <script src="plugins/jquery-confirm/jquery-confirm.min.js"></script>
 <script src="plugins/select2/js/select2.min.js"></script>
+<script type="text/javascript" src="layer/layer.js"></script>
+
 
 <script src="js/common.js"></script>
 <script>
@@ -100,14 +98,14 @@ $(function() {
 		toolbar: '#toolbar',
 		columns: [
 			{field: 'state', checkbox: true},
-			{field: 'id', title: '编号', sortable: true, halign: 'center'},
-			{field: 'name', title: '姓名', sortable: true, halign: 'center'},
+			//{field: 'id', title: '编号', sortable: true, halign: 'center'},
 			{field: 'phone', title: '手机', sortable: true, halign: 'center'},
+			{field: 'name', title: '姓名', sortable: true, halign: 'center'},
 			{field: 'sex', title: '性别', sortable: true, halign: 'center'},
 			{field: 'age', title: '年龄', sortable: true, halign: 'center'},
-			{field: 'createTime', title: '注册时间', sortable: true, halign: 'center'},
-			{field: 'remark', title: '备注', sortable: true, halign: 'center'},
-			{field: 'action', title: '操作', halign: 'center', align: 'center', formatter: 'actionFormatter', events: 'actionEvents', clickToSelect: false}
+			//{field: 'createTime', title: '注册时间', sortable: true, halign: 'center'},
+			{field: 'remark', title: '备注', sortable: true, halign: 'center'}
+			//{field: 'action', title: '操作', halign: 'center', align: 'center', formatter: 'actionFormatter', events: 'actionEvents', clickToSelect: false}
 		]
 	}).on('all.bs.table', function (e, name, args) {
 		$('[data-toggle="tooltip"]').tooltip();
@@ -149,15 +147,14 @@ function createAction() {
 				text: '确认',
 				btnClass: 'waves-effect waves-button',
 				action: function () {
-					$.alert('确认新增' );
                     $.ajax({
                         async: false,
                         type: "post",
                         dataType: 'json',
                         contentType: 'application/json; charset=utf-8',
                         url: "/Home/addUserInfo",
-                        //data: JSON.stringify(),
-                        data: $('#addForm').serialize(),
+                        data: JSON.stringify($('#addForm')),
+
                         success: function (data, status) {
                             if (status == "success") {
                                 layer.alert('注册客户信息提交成功，待验证！');
@@ -171,11 +168,8 @@ function createAction() {
                     });
 
 				}
-			},
-			cancel: {
-				text: '取消',
-				btnClass: 'waves-effect waves-button'
 			}
+
 		}
 	});
 }
