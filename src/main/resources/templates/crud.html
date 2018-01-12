@@ -30,16 +30,16 @@
 <div id="createDialog" class="crudDialog" hidden="hidden">
 	<form id="addForm">
 		<div class="form-group">
-			<label for="name">姓名</label>
-			<input id="name" type="text" class="form-control"/>
+			<label>姓名</label>
+			<input  name="name" type="text" class="form-control"/>
 		</div>
 		<div class="form-group">
 			<label for="phone">手机</label>
-			<input id="phone" type="text" class="form-control"/>
+			<input name="phone" type="text" class="form-control"/>
 		</div>
 		<div class="form-group">
 			<label for="remark">备注</label>
-			<input id="remark" type="text" class="form-control"/>
+			<input name="remark" type="text" class="form-control"/>
 		</div>
 	</form>
 </div>
@@ -135,6 +135,25 @@ window.actionEvents = {
     }
 };
 
+
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name]) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+
 // 新增
 function createAction() {
 	$.confirm({
@@ -147,13 +166,16 @@ function createAction() {
 				text: '确认',
 				btnClass: 'waves-effect waves-button',
 				action: function () {
+                    var v = $(content,"#addForm").serializeObject();
+                    alert(JSON.stringify(v));
                     $.ajax({
                         async: false,
                         type: "post",
                         dataType: 'json',
                         contentType: 'application/json; charset=utf-8',
                         url: "/user/addUserInfo",
-                        data: JSON.stringify($('#addForm')),
+                        data: JSON.stringify(v),
+						//data:$('#addForm').serialize(),
 
                         success: function (data, status) {
                             if (status == "success") {
