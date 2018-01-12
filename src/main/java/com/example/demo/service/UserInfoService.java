@@ -78,11 +78,7 @@ public class UserInfoService {
     @Transactional(propagation=Propagation.REQUIRED)
     public  void addUserInfo(UserInfo userInfo) throws Exception{
 
-        logger.info("注册用户信息："
-                + "姓名:" +userInfo.getName()
-                + "账户类型" + userInfo.getAccountType()
-                + "|手机号:" + userInfo.getPhone()
-        );
+        logger.info("注册用户信息：" + userInfo.toString());
         int i = 0;
         try {
             userInfo.setId(java.util.UUID.randomUUID().toString());

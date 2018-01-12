@@ -22,7 +22,7 @@
 	<div id="toolbar">
 		<a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增用户</a>
 		<a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-edit"></i> 编辑用户</a>
-		<a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-close"></i> 删除用户</a>
+		<!--a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-close"></i> 删除用户</a-->
 	</div>
 	<table id="table"></table>
 </div>
@@ -67,7 +67,7 @@ $(function() {
 	// bootstrap table初始化
 	// http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/
 	$table.bootstrapTable({
-		url: '/Home/getUserInfo',
+		url: '/user/getUserInfo',
 		height: getHeight(),
 		striped: true,
 		method: 'get',
@@ -152,7 +152,7 @@ function createAction() {
                         type: "post",
                         dataType: 'json',
                         contentType: 'application/json; charset=utf-8',
-                        url: "/Home/addUserInfo",
+                        url: "/user/addUserInfo",
                         data: JSON.stringify($('#addForm')),
 
                         success: function (data, status) {
@@ -232,7 +232,7 @@ function deleteAction() {
 			type: 'red',
 			animationSpeed: 300,
 			title: false,
-			content: '确认删除该系统吗？',
+			content: '确认删除该数据吗？',
 			buttons: {
 				confirm: {
 					text: '确认',

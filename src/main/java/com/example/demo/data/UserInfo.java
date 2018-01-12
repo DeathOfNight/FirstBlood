@@ -1,6 +1,7 @@
 package com.example.demo.data;
 
 
+import com.alibaba.fastjson.JSON;
 import com.example.demo.base.AccountTypeEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -133,15 +134,6 @@ public class UserInfo implements Serializable {
 
     @Override
     public String toString() {
-        return "UserInfo{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                ", age=" + age +
-                ", sex='" + sex + '\'' +
-                ", accountType=" + accountType +
-                ", createTime=" + createTime +
-                ", remark='" + remark + '\'' +
-                '}';
+        return JSON.toJSONString(this);
     }
 }

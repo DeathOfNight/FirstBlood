@@ -21,7 +21,7 @@ public class UserInfoController {
 
     private Log logger = LogFactory.getLog(this.getClass());
 
-    @RequestMapping(value = "Home/getUserInfo",method = RequestMethod.GET)
+    @RequestMapping(value = "user/getUserInfo",method = RequestMethod.GET)
     @ResponseBody
     public List<UserInfo> getUserInfo(){
             /*所需参数*/
@@ -44,7 +44,7 @@ public class UserInfoController {
     }
 
 
-    @RequestMapping(value = "/Home/save",method = RequestMethod.POST)
+    @RequestMapping(value = "/user/save",method = RequestMethod.POST)
     @ResponseBody
     public Boolean save(@RequestBody UserInfo   userInfo){
             /*所需参数*/
@@ -58,12 +58,13 @@ public class UserInfoController {
     }
 
 
-    @RequestMapping(value = "/Home/addUserInfo",method = RequestMethod.POST)
+    @RequestMapping(value = "/user/addUserInfo",method = RequestMethod.POST)
     @ResponseBody
     public Boolean add(@RequestBody UserInfo   userInfo){
         /**
          *  step 1 .user_Info客户表表中增加客户信息
          */
+        logger.info("新增用户信息：" + userInfo );
         try {
             userInfoService.addUserInfo(userInfo);
         } catch (Exception e) {
